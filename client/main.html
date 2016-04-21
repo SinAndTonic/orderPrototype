@@ -5,8 +5,11 @@
 <body>
   <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
+  {{> imageView}}
 
+  {{> myForm}}
+
+  {{> hello}}
 
 </body>
 
@@ -14,8 +17,17 @@
 <button>Test</button>
     <div class="reveal">
       <div class="slides">
-          <section>
-            <section data-background="#ff0000">Presentation Slide</section>
+          {{#each slider}}
+            {{> slide}}
+          {{/each}}
+      </div>
+    </div>
+
+</template>
+
+<template name="slide">
+  <section>
+            <section data-background="#ff0000"><img src={{url}}></section>
             <section>
               <table style="text-align: left;">
                 <thead><td>Stuff</td><td>Price</td><td>Order</td></thead>
@@ -26,7 +38,19 @@
               </table>
             </section>
           </section>
-      </div>
-    </div>
+</template>
 
+<template name="myForm">
+<h2>Upload here</h2>
+  <input class="myFileInput" type="file">
+</template>
+
+<template name="imageView">
+  <div class="imageView">
+    {{#each images}}
+      <div>
+        <a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" /></a>
+      </div>
+    {{/each}}
+  </div>
 </template>
