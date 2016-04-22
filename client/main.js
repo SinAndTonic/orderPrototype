@@ -17,7 +17,7 @@ Template.hello.helpers({
     return moment(Date()).format('dddd');
   },
   slider(){
-	return Slides.find();
+	return Images.find();
   }
 });
 
@@ -30,7 +30,7 @@ Template.hello.events({
 
 Template.slide.helpers({
 	getOne(){
-		return Slides.findOne({}).url;
+		return Images.find();
 	}
 });
 

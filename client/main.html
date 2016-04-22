@@ -3,9 +3,6 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> imageView}}
 
   {{> myForm}}
 
@@ -27,7 +24,7 @@
 
 <template name="slide">
   <section>
-            <section data-background="#ff0000"><img src={{url}}></section>
+            <section data-background="{{this.url}}"></section>
             <section>
               <table style="text-align: left;">
                 <thead><td>Stuff</td><td>Price</td><td>Order</td></thead>
@@ -41,7 +38,7 @@
 </template>
 
 <template name="myForm">
-<h2>Upload here</h2>
+
   <input class="myFileInput" type="file">
 </template>
 
@@ -49,7 +46,7 @@
   <div class="imageView">
     {{#each images}}
       <div>
-        <a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" /></a>
+        <img src="{{this.url}}" alt="" class="thumbnail" />
       </div>
     {{/each}}
   </div>
